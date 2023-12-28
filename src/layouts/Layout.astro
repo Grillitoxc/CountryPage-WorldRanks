@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -21,6 +21,22 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
   :root {
+    --bg-dark: #1a1d23;
+    --bg-light: #f5f5f5;
+    --bg-table-dark: #23272f;
+    --text-light: #f5f5f5;
+    --text-dark: #1a1d23;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: "Poppins", sans-serif;
   }
 </style>
