@@ -1,12 +1,32 @@
 ---
 import Hero from "../components/Hero.astro";
-import Table from "../components/Table.astro";
+import RankingFilter from "../components/RankingFilter.astro";
+import RankingHeader from "../components/RankingHeader.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Country Page - WorldRanks">
   <Hero />
-  <Table />
+  <section class="container">
+    <RankingHeader />
+    <RankingFilter />
+  </section>
 </Layout>
 
-<style></style>
+<style>
+  .container {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "ranking-header ranking-header"
+      "ranking-filter ranking-table";
+    max-width: 90%;
+    margin-top: -10px;
+    min-height: 500px;
+    margin: -65px auto 0 auto;
+    border: 2px solid rgb(101, 101, 101);
+    border-radius: 15px;
+    background-color: var(--bg-dark);
+  }
+</style>
