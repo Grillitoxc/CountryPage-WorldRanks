@@ -1,0 +1,44 @@
+.ranking-table-container {
+  grid-area: ranking-table;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead {
+  color: var(--thead-text);
+  border-bottom: 1px solid var(--td-border);
+}
+
+th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding-bottom: 10px;
+}
+
+tbody {
+  margin-top: 10px;
+  color: var(--tbody-text);
+}
+
+td {
+  padding: 13px 10px 13px 0;
+  text-wrap: balance;
+}
+
+td:first-child,
+th:first-child {
+  width: 120px; /* Ancho de la primera columna */
+}
+
+img {
+  width: 60px;
+  height: 40px;
+  aspect-ratio: attr(width) / attr(height);
+  border-radius: 0.2rem;
+  vertical-align: middle;
+}

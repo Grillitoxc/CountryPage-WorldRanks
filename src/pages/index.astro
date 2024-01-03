@@ -7,13 +7,15 @@ import Layout from "../layouts/Layout.astro";
 const countries = await fetch("https://restcountries.com/v3.1/all")
   .then((data) => data.json())
   .catch((err) => console.log(err));
+
+//console.log(countries);
 ---
 
 <Layout title="Country Page - WorldRanks">
   <Hero />
   <section class="container">
     <RankingHeader />
-    <RankingFilter countries={countries} />
+    <RankingFilter countries={countries} client:load />
   </section>
 </Layout>
 
@@ -25,12 +27,14 @@ const countries = await fetch("https://restcountries.com/v3.1/all")
     grid-template-areas:
       "ranking-header ranking-header"
       "ranking-filter ranking-table";
-    max-width: 90%;
+    width: 90%;
+    max-width: 1800px;
     margin-top: -10px;
     min-height: 500px;
     margin: -65px auto 0 auto;
     border: 2px solid rgb(101, 101, 101);
     border-radius: 15px;
     background-color: var(--bg-dark);
+    padding: 0 40px;
   }
 </style>
