@@ -1,0 +1,4 @@
+.ranking-filter-container {
+  grid-area: ranking-filter;
+  background-color: red;
+}
