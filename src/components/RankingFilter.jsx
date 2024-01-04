@@ -4,17 +4,12 @@ import "../styles/ranking-filter.css";
 import RankingTable from "./RankingTable.jsx";
 
 export const RankingFilter = ({ countries }) => {
-  const [filteredCountries, setFilteredCountries] = useState(countries);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [value, setValue] = useState("population");
 
   useEffect(() => {
-    // Aquí va la lógica para sort by population, area, name
-    // Se usa un useEffect para que cada vez que cambie el valor del select,
-    // se vuelva a enviar el prop countries a RankingTable.jsx (esto funciona
-    // porque el useEffect renderiza el componente cada vez que cambia el valor
-    // y por ende se vuelve a enviar el prop)
-    // Depende de value y debería depender del search igual cuando combine los componentes
-    // PD: amo react soy el dios de este framework soy demasiado genio para esta wea
+    const sortedCountries = sortCountries(countries, value);
+    setFilteredCountries([...sortedCountries]);
   }, [value]);
 
   return (
