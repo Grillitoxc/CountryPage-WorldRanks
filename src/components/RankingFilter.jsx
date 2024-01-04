@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "../styles/ranking-filter.css";
 import RankingTable from "./RankingTable.jsx";
 
-export const RankingFilter = (countries) => {
+export const RankingFilter = ({ countries }) => {
   const [filteredCountries, setFilteredCountries] = useState(countries);
   const [value, setValue] = useState("population");
 

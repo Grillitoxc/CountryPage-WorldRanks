@@ -1,9 +1,6 @@
 import "../styles/ranking-table.css";
 
 export const RankingTable = ({ countries }) => {
-  const countriesArray = countries.countries;
-  console.log(countriesArray);
-
   return (
     <>
       <section className="ranking-table-container">
@@ -18,7 +15,7 @@ export const RankingTable = ({ countries }) => {
             </tr>
           </thead>
           <tbody>
-            {countriesArray.map((country, index) => (
+            {countries.map((country, index) => (
               <tr key={index}>
                 <td className="image-container">
                   <img src={country.flags.png} alt={country.flags.alt} />
