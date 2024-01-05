@@ -1,7 +1,6 @@
 ---
 import Hero from "../components/Hero.astro";
 import RankingFilter from "../components/RankingFilter.jsx";
-import RankingHeader from "../components/RankingHeader.astro";
 import Layout from "../layouts/Layout.astro";
 
 const countries = await fetch("https://restcountries.com/v3.1/all")
@@ -14,7 +13,6 @@ const countries = await fetch("https://restcountries.com/v3.1/all")
 <Layout title="Country Page - WorldRanks">
   <Hero />
   <section class="container">
-    <RankingHeader />
     <RankingFilter countries={countries} client:load />
   </section>
 </Layout>

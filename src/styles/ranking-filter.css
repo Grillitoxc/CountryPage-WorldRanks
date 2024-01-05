@@ -1,4 +1,99 @@
-.ranking-filter-container {
-  grid-area: ranking-filter;
+.ranking-header-container {
+  grid-area: ranking-header;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
   animation: fadeIn 1s ease-in-out;
 }
+
+.ranking-filter-container {
+  grid-area: ranking-filter;
+  padding-right: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.ranking-filter-container h2 {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--thead-text);
+  margin-bottom: 10px;
+}
+
+/* Section: Sort by: */
+.sort-by-container {
+  margin-bottom: 30px;
+}
+
+.sort-filter-form select {
+  appearance: none;
+  outline: none;
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.2em;
+  color: var(--tbody-text);
+  cursor: pointer;
+  border: 2px solid var(--container-border);
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.sort-filter-form select:focus,
+.sort-filter-form select:hover {
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.sort-filter-form select option {
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: var(--bg-dark);
+  color: var(--tbody-text);
+}
+
+/* Section: Region */
+.region-container {
+  margin-bottom: 30px;
+}
+
+.region-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.region-buttons button.inactive {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  margin: 0 0.9rem 0.9rem 0;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  color: var(--thead-text);
+  transition: all 0.3s ease-in-out;
+}
+
+.region-buttons button.active {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  margin: 0 0.9rem 0.9rem 0;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  color: var(--tbody-text);
+  background: var(--bg-table-dark);
+  transition: all 0.3s ease-in-out;
+}
+
+.region-buttons button:hover {
+  color: var(--tbody-text);
+}
+
+/* Section: Status */

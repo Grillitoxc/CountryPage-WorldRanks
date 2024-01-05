@@ -7,11 +7,11 @@ export const RankingTable = ({ countries }) => {
         <table className="ranking-table">
           <thead>
             <tr>
-              <th>Flag</th>
-              <th>Name</th>
-              <th>Population</th>
-              <th>Area (km²)</th>
-              <th>Region</th>
+              <th>Bandera</th>
+              <th>Nombre</th>
+              <th>Población</th>
+              <th>Árearea (km²)</th>
+              <th>Región</th>
             </tr>
           </thead>
           <tbody>

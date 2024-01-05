@@ -21,17 +21,19 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
   :root {
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
     --bg-dark: #1a1d23;
     --bg-light-dark: #282b30;
     --bg-light: #f5f5f5;
     --bg-table-dark: #23272f;
+    --container-border: rgb(101, 101, 101);
     --text-light: #f5f5f5;
     --text-dark: #1a1d23;
     --thead-text: #6a727d;
     --tbody-text: #d1d5d8;
-    --td-border: #414143;
+    --filter-focus-border: #ffffff;
   }
   * {
     margin: 0;

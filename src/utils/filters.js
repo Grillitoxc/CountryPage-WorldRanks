@@ -14,10 +14,6 @@ export function byName(countries, name) {
   return countries.filter((country) => country.name.common === name);
 }
 
-export function totalCountries(countries) {
-  return countries.length;
-}
-
 export function sortCountries(countries, sort) {
   switch (sort) {
     case "name":
