@@ -1,21 +1,17 @@
-export function byUNMember(countries) {
-  return sortCountries(countries.filter((country) => country.unMember === true), "population");
+export function filterByMember(countries) {
+  return countries.filter((country) => country.unMember === true);
 }
 
-export function byIndependent(countries) {
-  return sortCountries(countries.filter((country) => country.independent === true), "population");
-}
-
-export function byRegion(countries, region) {
-  return sortCountries(countries.filter((country) => country.region === region), "population");
+export function filterByIndependent(countries) {
+  return countries.filter((country) => country.independent === true);
 }
 
 export function bySubregion(countries, subregion) {
-  return sortCountries(countries.filter((country) => country.subregion === subregion), "population");
+  return countries.filter((country) => country.subregion === subregion);
 }
 
 export function byName(countries, name) {
-  return sortCountries(countries.filter((country) => country.name.common === name), "population");
+  return countries.filter((country) => country.name.common === name);
 }
 
 export function totalCountries(countries) {
@@ -37,3 +33,23 @@ export function sortCountries(countries, sort) {
   }
 }
 
+export function filterByRegion(
+  countries,
+  americasFilter,
+  antarcticFilter,
+  africaFilter,
+  asiaFilter,
+  europeFilter,
+  oceaniaFilter
+) {
+  const regions = [];
+  americasFilter && regions.push("Americas");
+  antarcticFilter && regions.push("Antarctic");
+  africaFilter && regions.push("Africa");
+  asiaFilter && regions.push("Asia");
+  europeFilter && regions.push("Europe");
+  oceaniaFilter && regions.push("Oceania");
+  return regions.length === 0
+  ? countries
+  : countries.filter((country) => regions.includes(country.region));
+}
