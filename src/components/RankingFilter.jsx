@@ -3,6 +3,7 @@ import {
   filterByRegion,
   filterByMember,
   filterByIndependent,
+  searchInputFilter,
 } from "../utils/filters.js";
 import { useEffect, useState } from "react";
 import "../styles/ranking-filter.css";
@@ -22,7 +23,7 @@ export const RankingFilter = ({ countries }) => {
   const [oceaniaFilter, setOceaniaFilter] = useState(false);
   const [memberFilter, setMemberFilter] = useState(false);
   const [independentFilter, setIndependentFilter] = useState(false);
-
+  const [searchFilter, setSearchFilter] = useState("");
   useEffect(() => {
     let filtered = filterByRegion(
       countries,
@@ -43,6 +44,10 @@ export const RankingFilter = ({ countries }) => {
       filtered = filterByIndependent(filtered);
     }
 
+    if (searchFilter) {
+      filtered = searchInputFilter(filtered, searchFilter);
+    }
+
     const sortedCountries = sortCountries(filtered, value);
     setFilteredCountries([...sortedCountries]);
     setFilteredCountriesLength([...sortedCountries].length);
@@ -56,18 +61,26 @@ export const RankingFilter = ({ countries }) => {
     oceaniaFilter,
     memberFilter,
     independentFilter,
+    searchFilter,
   ]);
 
   return (
     <>
       <header className="ranking-header-container">
         <p>Se encontraron {filteredCountriesLength} Países</p>
-        <form id="form-search-countries">
+        <form id="form-search-countries" className="search-form">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <g>
+              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g>
+          </svg>
           <input
             type="text"
             id="id-search-countries"
             name="search-countries"
-            placeholder="Search for a country"
+            className="search-input"
+            placeholder="Buscar por Nombre, Región o Subregión"
+            onChange={(e) => setSearchFilter(e.target.value)}
           />
         </form>
       </header>
@@ -130,20 +143,30 @@ export const RankingFilter = ({ countries }) => {
             </button>
           </section>
         </section>
-        <section className="status-container">
+        <section>
           <h2>Estado</h2>
-          <input
-            id="id-member-filter"
-            type="checkbox"
-            onChange={() => setMemberFilter(!memberFilter)}
-          />
-          Member
-          <input
-            id="id-independent-filter"
-            type="checkbox"
-            onChange={() => setIndependentFilter(!independentFilter)}
-          />
-          Independent
+          <section className="status-buttons">
+            <label className="status-checkbox">
+              <input
+                id="id-member-filter"
+                type="checkbox"
+                className="checkbox"
+                onChange={() => setMemberFilter(!memberFilter)}
+              />
+              <span class="custom-checkbox"></span>
+              Member
+            </label>
+            <label className="status-checkbox">
+              <input
+                id="id-independent-filter"
+                type="checkbox"
+                className="checkbox"
+                onChange={() => setIndependentFilter(!independentFilter)}
+              />
+              <span class="custom-checkbox"></span>
+              Independent
+            </label>
+          </section>
         </section>
       </aside>
       <RankingTable countries={filteredCountries} client:load />

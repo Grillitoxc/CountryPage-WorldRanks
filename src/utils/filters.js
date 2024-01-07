@@ -6,12 +6,13 @@ export function filterByIndependent(countries) {
   return countries.filter((country) => country.independent === true);
 }
 
-export function bySubregion(countries, subregion) {
-  return countries.filter((country) => country.subregion === subregion);
-}
-
-export function byName(countries, name) {
-  return countries.filter((country) => country.name.common === name);
+export function searchInputFilter(countries, search) {
+  return countries.filter(
+    (country) =>
+      (country.name.common && country.name.common.toLowerCase().includes(search.toLowerCase())) ||
+      (country.region.toLowerCase().includes(search.toLowerCase())) ||
+      (country.subregion && country.subregion.toLowerCase().includes(search.toLowerCase()))
+  );
 }
 
 export function sortCountries(countries, sort) {

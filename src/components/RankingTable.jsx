@@ -10,7 +10,7 @@ export const RankingTable = ({ countries }) => {
               <th>Bandera</th>
               <th>Nombre</th>
               <th>Población</th>
-              <th>Árearea (km²)</th>
+              <th>Área (km²)</th>
               <th>Región</th>
             </tr>
           </thead>
