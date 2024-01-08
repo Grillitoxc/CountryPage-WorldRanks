@@ -1,6 +1,40 @@
+import { useEffect, useState } from "react";
 import "../styles/ranking-table.css";
 
 export const RankingTable = ({ countries }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const countriesPerPage = 10;
+  const indexOfLastCountry = currentPage * countriesPerPage;
+  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+  const currentCountries = countries.slice(
+    indexOfFirstCountry,
+    indexOfLastCountry
+  );
+
+  useEffect(() => {
+    const getTotalPages = () => {
+      if (countries.length === 0) {
+        setTotalPages(1);
+      } else {
+        setTotalPages(Math.ceil(countries.length / countriesPerPage));
+      }
+    };
+    getTotalPages();
+  }, [countries, currentPage]);
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <>
       <section className="ranking-table-container">
@@ -15,7 +49,7 @@ export const RankingTable = ({ countries }) => {
             </tr>
           </thead>
           <tbody>
-            {countries.map((country, index) => (
+            {currentCountries.map((country, index) => (
               <tr key={index}>
                 <td className="image-container">
                   <img src={country.flags.png} alt={country.flags.alt} />
@@ -36,6 +70,20 @@ export const RankingTable = ({ countries }) => {
             ))}
           </tbody>
         </table>
+      </section>
+      <section className="pagination-container">
+        <button
+          className="pagination-button"
+          onClick={() => handlePreviousPage()}
+        >
+          Anterior
+        </button>
+        <button className="pagination-button" onClick={() => handleNextPage()}>
+          Siguiente
+        </button>
+        <div className="current-page">
+          Página {currentPage} de {totalPages}
+        </div>
       </section>
     </>
   );

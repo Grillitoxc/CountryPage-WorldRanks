@@ -44,3 +44,16 @@ img {
   border-radius: 0.2rem;
   vertical-align: middle;
 }
+
+/* Section: Pagination table */
+.pagination-container {
+  color: var(--thead-text);
+}
+
+.pagination-button{
+  background-color: var(--pagination-button-bg);
+  color: var(--pagination-button-text);
+  padding: 0.5rem 0.8rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}
