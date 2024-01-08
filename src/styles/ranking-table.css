@@ -19,6 +19,7 @@ th {
   font-weight: 400;
   font-size: 0.9rem;
   padding-bottom: 10px;
+  padding-left: 13px;
 }
 
 tbody {
@@ -28,7 +29,7 @@ tbody {
 }
 
 td {
-  padding: 13px 10px 13px 0;
+  padding: 13px;
   text-wrap: balance;
 }
 
@@ -50,10 +51,23 @@ img {
   color: var(--thead-text);
 }
 
-.pagination-button{
+.pagination-button {
   background-color: var(--pagination-button-bg);
   color: var(--pagination-button-text);
   padding: 0.5rem 0.8rem;
   margin: 0 0.2rem;
   cursor: pointer;
+}
+
+tbody tr {
+  transition: all 0.3s ease-in-out;
+}
+
+tbody tr:hover {
+  background-color: var(--bg-table-dark);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }

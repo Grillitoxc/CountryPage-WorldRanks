@@ -1,0 +1,14 @@
+---
+const { id } = Astro.params;
+console.log(id);
+
+export async function getStaticPaths() {
+  const countries = await fetch("https://restcountries.com/v3.1/all")
+    .then((data) => data.json())
+    .catch((err) => console.log(err));
+
+  return countries.map((country) => ({ params: { id: country.cca2 } }));
+}
+---
+
+<h1>index:{id}</h1>

@@ -35,6 +35,10 @@ export const RankingTable = ({ countries }) => {
     }
   };
 
+  const handleRowClick = (id) => {
+    window.location.href = `/${id}`;
+  };
+
   return (
     <>
       <section className="ranking-table-container">
@@ -50,7 +54,7 @@ export const RankingTable = ({ countries }) => {
           </thead>
           <tbody>
             {currentCountries.map((country, index) => (
-              <tr key={index}>
+              <tr key={index} onClick={() => handleRowClick(country.cca2)}>
                 <td className="image-container">
                   <img src={country.flags.png} alt={country.flags.alt} />
                 </td>
